@@ -77,14 +77,18 @@
                                                 <label for="titlefloatingInput">title <span class="text-danger">*</span></label>
                                             </div>
                                         </div>
-                                        <div class="col-xxl-6 col-md-6">
-                                            <div class="form-group">
-                                                <label style="margin-bottom: 7px;" for="categories">categories <span class="text-danger"></span></label><br/>
-                                                <select class="form-control" name="category_id" id="categories">
-                                                    <option>select</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                        <div class="col-xxl-6 col-md-6">
+                            <div class="form-group">
+                                <label style="margin-bottom: 7px;" for="categories">categories <span class="text-danger"></span></label><br/>
+                                <select class="form-control" name="category_id" id="categories">
+                                    @if(isset($category) && $category)
+                                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                                    @else
+                                        <option>select</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
                                         <div class="col-xxl-6 col-md-6">
                                             <div class="form-group">
                                                 <label style="margin-bottom: 7px;" for="writers">writers <span class="text-danger"></span></label><br/>

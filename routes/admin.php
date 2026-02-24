@@ -92,6 +92,7 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin-p
         Route::get('articles/index/{offset?}/{limit?}', 'ArticleController@index')->name('admin/articles/index');
 
         Route::get('articles/create', 'ArticleController@create')->name('admin/articles/create');
+        Route::get('articles/create/category/{categoryId}', 'ArticleController@createWithCategory')->name('admin/articles/create/withCategory');
         Route::get('articles/create/service', 'ArticleController@createService')->name('admin/articles/create/service');
         Route::get('articles/create/article', 'ArticleController@createArticle')->name('admin/articles/create/article');
 

@@ -99,7 +99,7 @@
                                 <a href="{{route('admin/articles/index')}}/0/{{PAGINATION_COUNT}}" class="nav-link" data-key="t-articles-list"> Articles </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('admin/articles/create/article')}}" class="nav-link" data-key="t-articles-add"> Add Article </a>
+                                <a href="{{route('admin/articles/create')}}" class="nav-link" data-key="t-articles-add"> Add Article </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('admin/articles/create/service')}}" class="nav-link" data-key="t-services-add"> Add Service </a>

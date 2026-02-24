@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Repositories\Eloquent\Admin\ArticleRepository;
 use App\Http\Requests\Admin\ArticleRequests\ArticleStoreRequest;
 use App\Http\Requests\Admin\ArticleRequests\ArticleUpdateRequest;
+use App\Models\Category;
 
 class ArticleController extends Controller
 {
@@ -31,7 +32,20 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('admin.articles.create');
+        // Show category selection page
+        $categories = Category::whereNull('parent_id')->where('is_activate', 1)->get();
+        return view('admin.articles.selectCategory', compact('categories'));
+    }
+
+    public function createWithCategory($categoryId)
+    {
+        try {
+            $category = Category::findOrFail($categoryId);
+            return view('admin.articles.article', compact('category'));
+        } catch (\Exception $e) {
+            flash()->error('Category not found');
+            return back();
+        }
     }
 
     public function createService()
